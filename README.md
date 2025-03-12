@@ -1,2 +1,6 @@
 # terraform-aws-s3
-AWS S3 Bucket based on AWS Security Best Practices
+This module is used to instantiate an AWS S3 Bucket based on AWS Security Best Practices.  
+
+# Usage
+
+
