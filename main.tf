@@ -64,27 +64,32 @@ resource "aws_s3_bucket_policy" "allow_access_from_everyone" {
 }
 
 resource "aws_kms_key" "s3_kms_key" {
+  count  = var.static_website_hosting ? 0 : 1   # create key only if NOT creating a static website
   description             = "KMS key for S3 encryption"
   deletion_window_in_days = 30
   enable_key_rotation     = true
 }
 
 resource "aws_kms_alias" "s3_kms_alias" {
+  count  = var.static_website_hosting ? 0 : 1   # create key only if NOT creating a static website
   name          = "alias/${var.bucket_name}-s3-kms-key"
-  target_key_id = aws_kms_key.s3_kms_key.id
+  target_key_id = aws_kms_key.s3_kms_key[0].id
 }
 
-resource "aws_s3_bucket_server_side_encryption_configuration" "encryption" {
+resource "aws_s3_bucket_server_side_encryption_configuration" "sse_kms_encryption" {
+  count  = var.static_website_hosting ? 0 : 1   # create key only if NOT creating a static website
   bucket = aws_s3_bucket.secure_bucket.id
   rule {
     apply_server_side_encryption_by_default {
       sse_algorithm     = "aws:kms"
-      kms_master_key_id = aws_kms_key.s3_kms_key.id
+      kms_master_key_id = aws_kms_key.s3_kms_key[0].arn
     }
   }
 }
 
 resource "aws_s3_bucket_policy" "https_policy" {
+  count  = var.static_website_hosting ? 0 : 1   # Apply policy only if not creating a static website
+
   bucket = aws_s3_bucket.secure_bucket.id
   policy = jsonencode({
     Statement = [{
