@@ -28,7 +28,7 @@ variable "object_lock_retention" {
 }
 
 variable "create_logging_bucket" {
-  description = "Whether to create logging bucket"
+  description = "Whether to create logging bucket."
   type        = bool
   default     = true
 }
