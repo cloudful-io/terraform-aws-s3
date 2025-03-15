@@ -2,6 +2,7 @@ formatter: markdown table
 output:
   file: README.md
   mode: replace
+header-from: "docs/header.md"
 footer-from: "docs/footer.md"
 
 content: |-
