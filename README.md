@@ -14,6 +14,13 @@ To instantiate an AWS S3 bucket based on the AWS Security Best Practices, you si
 - Public access will be enabled
 - A bucket policy will be created to allow anyone to perform `GetObject` on any S3 objects
 
+# Inputs
+| Name      | Description   | Type |
+| --------- | ------------- | ---- |
+| bucket_name | The name of the S3 bucket. | string |
+
+# Outputs
+
 # References
 - [AWS Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
 
