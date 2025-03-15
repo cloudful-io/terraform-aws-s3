@@ -1,4 +1,4 @@
-# terraform-aws-s3
+# terraform-aws-s3 
 This Terraform module is used to instantiate an AWS S3 Bucket based on [AWS Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html):
 * Enforce encryption of data at rest using AWS Key Management Service (KMS)
 * Enforce encryption of data in transit
