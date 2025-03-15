@@ -15,11 +15,21 @@ To instantiate an AWS S3 bucket based on the AWS Security Best Practices, you si
 - A bucket policy will be created to allow anyone to perform `GetObject` on any S3 objects
 
 # Inputs
-| Name      | Description   | Type |
-| --------- | ------------- | ---- |
-| bucket_name | The name of the S3 bucket. | string |
+| Name      | Description   | Type | Default |
+| --------- | ------------- | ---- | ------- |
+| bucket_name | The name of the S3 bucket. | string | |
+| static_website_hosting | Enable or disable blocking public access to the bucket. | bool | false |
+| block_public_access | Enable or disable blocking public access to the bucket. | bool | true |
+| object_lock_enabled | Enable or disable object lock for data protection. | bool | true |
+| object_lock_retention | Number of days to retain objects when object lock is enabled. | number | 30 |
+| create_logging_bucket | Whether to create logging bucket. | bool | true |
+| logging_bucket_name | The name of the logging bucket where access logs will be stored. | string | |
 
 # Outputs
+| Name      | Description   | Type |
+| --------- | ------------- | ---- |
+| bucket_name | The name of the created S3 bucket. | string |
+| region | The region of the created S3 bucket. | string |
 
 # References
 - [AWS Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
