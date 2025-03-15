@@ -40,6 +40,3 @@ override.tf.json
 terraform.rc
 
 .DS_Store
-
-# Ignore Terraform-docs config
-.terraform-docs.yml
