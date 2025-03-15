@@ -16,15 +16,25 @@ To instantiate an AWS S3 bucket based on the AWS Security Best Practices, you si
 - A bucket policy will be created to allow anyone to perform `GetObject` on any S3 objects
 ## Diagram
 ![Diagram](./diagram.png)
-## References
-- [AWS Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
 
-## Requirements
+## Inputs
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 4.64.0 |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_block_public_access"></a> [block\_public\_access](#input\_block\_public\_access) | Enable or disable blocking public access to the bucket. | `bool` | `true` | no |
+| <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | The name of the S3 bucket. | `string` | n/a | yes |
+| <a name="input_create_logging_bucket"></a> [create\_logging\_bucket](#input\_create\_logging\_bucket) | Whether to create logging bucket. | `bool` | `true` | no |
+| <a name="input_logging_bucket_name"></a> [logging\_bucket\_name](#input\_logging\_bucket\_name) | The name of the logging bucket where access logs will be stored. | `string` | n/a | yes |
+| <a name="input_object_lock_enabled"></a> [object\_lock\_enabled](#input\_object\_lock\_enabled) | Enable or disable object lock for data protection. | `bool` | `false` | no |
+| <a name="input_object_lock_retention"></a> [object\_lock\_retention](#input\_object\_lock\_retention) | Number of days to retain objects when object lock is enabled. | `number` | `30` | no |
+| <a name="input_static_website_hosting"></a> [static\_website\_hosting](#input\_static\_website\_hosting) | Enable or disable static website hosting. | `bool` | `false` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | The name of the created S3 bucket. |
+| <a name="output_region"></a> [region](#output\_region) | The region of the created S3 bucket. |  
 
 ## Providers
 
@@ -32,9 +42,12 @@ To instantiate an AWS S3 bucket based on the AWS Security Best Practices, you si
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 4.64.0 |
 
-## Modules
+## Requirements
 
-No modules.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 4.64.0 |
 
 ## Resources
 
@@ -54,22 +67,6 @@ No modules.
 | [aws_s3_bucket_versioning.versioning](https://registry.terraform.io/providers/hashicorp/aws/4.64.0/docs/resources/s3_bucket_versioning) | resource |
 | [aws_s3_bucket_website_configuration.s3_website_configuration](https://registry.terraform.io/providers/hashicorp/aws/4.64.0/docs/resources/s3_bucket_website_configuration) | resource |
 
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_block_public_access"></a> [block\_public\_access](#input\_block\_public\_access) | Enable or disable blocking public access to the bucket. | `bool` | `true` | no |
-| <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | The name of the S3 bucket. | `string` | n/a | yes |
-| <a name="input_create_logging_bucket"></a> [create\_logging\_bucket](#input\_create\_logging\_bucket) | Whether to create logging bucket. | `bool` | `true` | no |
-| <a name="input_logging_bucket_name"></a> [logging\_bucket\_name](#input\_logging\_bucket\_name) | The name of the logging bucket where access logs will be stored. | `string` | n/a | yes |
-| <a name="input_object_lock_enabled"></a> [object\_lock\_enabled](#input\_object\_lock\_enabled) | Enable or disable object lock for data protection. | `bool` | `false` | no |
-| <a name="input_object_lock_retention"></a> [object\_lock\_retention](#input\_object\_lock\_retention) | Number of days to retain objects when object lock is enabled. | `number` | `30` | no |
-| <a name="input_static_website_hosting"></a> [static\_website\_hosting](#input\_static\_website\_hosting) | Enable or disable static website hosting. | `bool` | `false` | no |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | The name of the created S3 bucket. |
-| <a name="output_region"></a> [region](#output\_region) | The region of the created S3 bucket. |
+## References
+ * - [AWS Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
 <!-- END_TF_DOCS -->

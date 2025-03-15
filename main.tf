@@ -16,8 +16,6 @@
  * - A bucket policy will be created to allow anyone to perform `GetObject` on any S3 objects
  * ## Diagram
  * ![Diagram](./diagram.png)
- * ## References
- * - [AWS Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
  */
 
 resource "aws_s3_bucket" "logging_bucket" {
