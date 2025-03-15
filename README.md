@@ -19,9 +19,11 @@ To instantiate an AWS S3 bucket based on the AWS Security Best Practices, you si
 
 # Requirements
 | Name      | Version   |
+| --------- | --------- |
 | terraform | >= 1.3.0  |
 | aws       | >= 4.64.0 |
 
 # Providers
 | Name      | Version   |
+| --------- | --------- |
 | aws       | >= 4.64.0 |
