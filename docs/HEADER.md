@@ -8,7 +8,7 @@
  - Enable Amazon S3 server access logging
  ## Usage
  To instantiate an AWS S3 bucket based on the AWS Security Best Practices, you simply need to provide a unique bucket name.  Bucket names must be unique across all AWS accounts in all the AWS Regions within a partition. A partition is a grouping of Regions. Since server access logging is enabled by default, you must either specify the name of an existing S3 bucket where the logs will be stored, or specify to have a new bucket created by setting `create_logging_bucket` to `true`.  If the S3 bucket is intended to be used for static website hosting, the following will happen:
- - Encryption of data at rest will use Amazon S3 Managed Keys (SSE-S3)
+ - Encryption of data at rest will use an Amazon S3 Managed Key (SSE-S3)
  - Encryption of data in transit will not be enforced
  - Public access will be enabled
  - A bucket policy will be created to allow anyone to perform `GetObject` on any S3 objects
