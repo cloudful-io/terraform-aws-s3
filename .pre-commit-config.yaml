@@ -4,4 +4,6 @@ repos:
     hooks:
       - id: terraform-docs-go
         args: ["markdown", "table", "--output-file", "README.md", "."]
+        stages: [commit, push, manual]  # ✅ Run on commit and push
         pass_filenames: false  # Run against all files, not just staged ones
+        always_run: true
