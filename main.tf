@@ -1,3 +1,5 @@
+# Description: This Terraform configuration file creates an S3 bucket.
+  
 resource "aws_s3_bucket" "logging_bucket" {
   count = var.create_logging_bucket ? 1 : 0
   bucket = var.logging_bucket_name
