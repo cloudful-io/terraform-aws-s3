@@ -87,7 +87,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "sse_kms_encryptio
 }
 
 resource "aws_s3_bucket_policy" "https_policy" {
-  count  = var.static_website_hosting ? 0 : 1   # Apply policy only if not creating a static website
+  count  = var.static_website_hosting ? 0 : 1   # Apply policy only if not creating a static website  
 
   bucket = aws_s3_bucket.secure_bucket.id
   policy = jsonencode({
