@@ -15,6 +15,12 @@ variable "block_public_access" {
   default     = true
 }
 
+variable "create_kms_key" {
+  description = "Enable or disable static website hosting."
+  type        = bool
+  default     = false
+}
+
 variable "object_lock_enabled" {
   description = "Enable or disable object lock for data protection."
   type        = bool

@@ -22,6 +22,7 @@
 |------|-------------|------|---------|:--------:|
 | <a name="input_block_public_access"></a> [block\_public\_access](#input\_block\_public\_access) | Enable or disable blocking public access to the bucket. | `bool` | `true` | no |
 | <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | The name of the S3 bucket. | `string` | n/a | yes |
+| <a name="input_create_kms_key"></a> [create\_kms\_key](#input\_create\_kms\_key) | Enable or disable static website hosting. | `bool` | `false` | no |
 | <a name="input_create_logging_bucket"></a> [create\_logging\_bucket](#input\_create\_logging\_bucket) | Whether to create logging bucket. | `bool` | `true` | no |
 | <a name="input_logging_bucket_name"></a> [logging\_bucket\_name](#input\_logging\_bucket\_name) | The name of the logging bucket where access logs will be stored. | `string` | n/a | yes |
 | <a name="input_object_lock_enabled"></a> [object\_lock\_enabled](#input\_object\_lock\_enabled) | Enable or disable object lock for data protection. | `bool` | `false` | no |
@@ -44,6 +45,7 @@ module "secured-bucket" {
     bucket_name             = var.bucket_name
     static_website_hosting  = false
     block_public_access     = true
+    create_kms_key          = false
     create_logging_bucket   = true
     logging_bucket_name     = "cloudful-logs"
 }
