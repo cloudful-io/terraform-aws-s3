@@ -32,7 +32,7 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | The name of the created S3 bucket. |
+| <a name="output_id"></a> [id](#output\_id) | The name of the created S3 bucket. |
 | <a name="output_region"></a> [region](#output\_region) | The region of the created S3 bucket. |  
 
 ## Example
