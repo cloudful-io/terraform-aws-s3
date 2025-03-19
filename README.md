@@ -36,7 +36,7 @@
 | <a name="output_region"></a> [region](#output\_region) | The region of the created S3 bucket. |  
 
 ## Example
-
+### Secured S3 Bucket
 ```hcl
 module "secured-bucket" {
     source                  = "../../"
@@ -44,6 +44,19 @@ module "secured-bucket" {
     bucket_name             = var.bucket_name
     static_website_hosting  = false
     block_public_access     = true
+    create_logging_bucket   = true
+    logging_bucket_name     = "cloudful-logs"
+}
+```
+
+### S3 Bucket for Static Website
+```hcl
+module "static_website" {
+    source                  = "../../"
+
+    bucket_name             = var.bucket_name
+    static_website_hosting  = true
+    block_public_access     = false
     create_logging_bucket   = true
     logging_bucket_name     = "cloudful-logs"
 }

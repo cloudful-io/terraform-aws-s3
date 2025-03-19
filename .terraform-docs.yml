@@ -13,9 +13,14 @@ content: |-
   {{ .Outputs }}  
 
   ## Example
-
+  ### Secured S3 Bucket
   ```hcl
   {{ include "examples/secured-bucket/main.tf" }}
+  ```
+
+  ### S3 Bucket for Static Website
+  ```hcl
+  {{ include "examples/static-website/main.tf" }}
   ```
 
   {{ .Providers }}
