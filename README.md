@@ -35,6 +35,20 @@
 | <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | The name of the created S3 bucket. |
 | <a name="output_region"></a> [region](#output\_region) | The region of the created S3 bucket. |  
 
+## Example
+
+```hcl
+module "secured-bucket" {
+    source                  = "../../"
+
+    bucket_name             = var.bucket_name
+    static_website_hosting  = false
+    block_public_access     = true
+    create_logging_bucket   = true
+    logging_bucket_name     = "cloudful-logs"
+}
+```
+
 ## Providers
 
 | Name | Version |

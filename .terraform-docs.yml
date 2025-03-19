@@ -12,6 +12,12 @@ content: |-
 
   {{ .Outputs }}  
 
+  ## Example
+
+  ```hcl
+  {{ include "examples/secured-bucket/main.tf" }}
+  ```
+
   {{ .Providers }}
 
   {{ .Requirements }}
