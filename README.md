@@ -33,6 +33,7 @@
 
 | Name | Description |
 |------|-------------|
+| <a name="output_arn"></a> [arn](#output\_arn) | The Amazon Resource Name (ARN) of the created S3 bucket. |
 | <a name="output_id"></a> [id](#output\_id) | The name of the created S3 bucket. |
 | <a name="output_region"></a> [region](#output\_region) | The region of the created S3 bucket. |  
 
