@@ -24,6 +24,7 @@
 | <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | The name of the S3 bucket. | `string` | n/a | yes |
 | <a name="input_create_kms_key"></a> [create\_kms\_key](#input\_create\_kms\_key) | Enable or disable static website hosting. | `bool` | `false` | no |
 | <a name="input_create_logging_bucket"></a> [create\_logging\_bucket](#input\_create\_logging\_bucket) | Whether to create logging bucket. | `bool` | `true` | no |
+| <a name="input_enforce_encryption_in_transit"></a> [enforce\_encryption\_in\_transit](#input\_enforce\_encryption\_in\_transit) | Whether to enforce encryption of data in transit. | `bool` | `true` | no |
 | <a name="input_logging_bucket_name"></a> [logging\_bucket\_name](#input\_logging\_bucket\_name) | The name of the logging bucket where access logs will be stored. | `string` | n/a | yes |
 | <a name="input_object_lock_enabled"></a> [object\_lock\_enabled](#input\_object\_lock\_enabled) | Enable or disable object lock for data protection. | `bool` | `false` | no |
 | <a name="input_object_lock_retention"></a> [object\_lock\_retention](#input\_object\_lock\_retention) | Number of days to retain objects when object lock is enabled. | `number` | `30` | no |

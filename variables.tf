@@ -21,6 +21,12 @@ variable "create_kms_key" {
   default     = false
 }
 
+variable "enforce_encryption_in_transit" {
+  description = "Whether to enforce encryption of data in transit."
+  type        = bool
+  default     = true
+}
+
 variable "object_lock_enabled" {
   description = "Enable or disable object lock for data protection."
   type        = bool
