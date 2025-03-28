@@ -1,13 +1,13 @@
 # Description: This Terraform configuration file creates an S3 bucket.
-  
+data "aws_caller_identity" "current" {}
+
 resource "aws_s3_bucket" "logging_bucket" {
-  count = var.create_logging_bucket ? 1 : 0
   bucket = var.logging_bucket_name
 }
 
 resource "aws_s3_bucket_policy" "logging_bucket_policy" {
-  count  = var.create_logging_bucket ? 1 : 0
-  bucket = aws_s3_bucket.logging_bucket[0].id
+  bucket = aws_s3_bucket.logging_bucket.id
+
   policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
@@ -16,7 +16,15 @@ resource "aws_s3_bucket_policy" "logging_bucket_policy" {
         Effect    = "Allow",
         Principal = { Service = "logging.s3.amazonaws.com" },
         Action    = "s3:PutObject",
-        Resource  = "arn:aws:s3:::${aws_s3_bucket.logging_bucket[0].id}/*"
+        Resource  = "arn:aws:s3:::${var.logging_bucket_name}/*",
+        Condition = {
+          "StringEquals" = {
+            "aws:SourceAccount" = "${data.aws_caller_identity.current.account_id}"
+          },
+          "ArnLike" = {
+            "aws:SourceArn" = "arn:aws:s3:::${var.bucket_name}"
+          }
+        }
       }
     ]
   })

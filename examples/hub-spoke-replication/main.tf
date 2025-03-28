@@ -5,8 +5,7 @@ module "hub-bucket" {
     static_website_hosting  = false
     block_public_access     = true
     create_kms_key          = false
-    create_logging_bucket   = true
-    logging_bucket_name     = "cloudful-logs"
+    logging_bucket_name     = "cloudful-hub-logs"
 }
 
 module "spoke1-bucket" {
@@ -16,8 +15,7 @@ module "spoke1-bucket" {
     static_website_hosting  = false
     block_public_access     = true
     create_kms_key          = false
-    create_logging_bucket   = false
-    logging_bucket_name     = "cloudful-logs"
+    logging_bucket_name     = "cloudful-spoke-logs"
 }
 
 data "aws_iam_policy_document" "assume_role" {

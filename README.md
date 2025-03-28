@@ -20,15 +20,14 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_block_public_access"></a> [block\_public\_access](#input\_block\_public\_access) | Enable or disable blocking public access to the bucket. | `bool` | `true` | no |
-| <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | The name of the S3 bucket. | `string` | n/a | yes |
-| <a name="input_create_kms_key"></a> [create\_kms\_key](#input\_create\_kms\_key) | Enable or disable static website hosting. | `bool` | `false` | no |
-| <a name="input_create_logging_bucket"></a> [create\_logging\_bucket](#input\_create\_logging\_bucket) | Whether to create logging bucket. | `bool` | `true` | no |
-| <a name="input_enforce_encryption_in_transit"></a> [enforce\_encryption\_in\_transit](#input\_enforce\_encryption\_in\_transit) | Whether to enforce encryption of data in transit. | `bool` | `true` | no |
-| <a name="input_logging_bucket_name"></a> [logging\_bucket\_name](#input\_logging\_bucket\_name) | The name of the logging bucket where access logs will be stored. | `string` | n/a | yes |
-| <a name="input_object_lock_enabled"></a> [object\_lock\_enabled](#input\_object\_lock\_enabled) | Enable or disable object lock for data protection. | `bool` | `false` | no |
-| <a name="input_object_lock_retention"></a> [object\_lock\_retention](#input\_object\_lock\_retention) | Number of days to retain objects when object lock is enabled. | `number` | `30` | no |
-| <a name="input_static_website_hosting"></a> [static\_website\_hosting](#input\_static\_website\_hosting) | Enable or disable static website hosting. | `bool` | `false` | no |
+| <a name="input_block_public_access"></a> [block\_public\_access](#input\_block\_public\_access) | Enable or disable blocking public access to the bucket | `bool` | `true` | no |
+| <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | The name of the S3 bucket | `string` | n/a | yes |
+| <a name="input_create_kms_key"></a> [create\_kms\_key](#input\_create\_kms\_key) | Enable or disable static website hosting | `bool` | `false` | no |
+| <a name="input_enforce_encryption_in_transit"></a> [enforce\_encryption\_in\_transit](#input\_enforce\_encryption\_in\_transit) | Whether to enforce encryption of data in transit | `bool` | `true` | no |
+| <a name="input_logging_bucket_name"></a> [logging\_bucket\_name](#input\_logging\_bucket\_name) | The name of the logging bucket where access logs will be stored | `string` | n/a | yes |
+| <a name="input_object_lock_enabled"></a> [object\_lock\_enabled](#input\_object\_lock\_enabled) | Enable or disable object lock for data protection | `bool` | `false` | no |
+| <a name="input_object_lock_retention"></a> [object\_lock\_retention](#input\_object\_lock\_retention) | Number of days to retain objects when object lock is enabled | `number` | `30` | no |
+| <a name="input_static_website_hosting"></a> [static\_website\_hosting](#input\_static\_website\_hosting) | Enable or disable static website hosting | `bool` | `false` | no |
 
 ## Outputs
 
@@ -42,14 +41,13 @@
 ## Example
 ### Secured S3 Bucket
 ```hcl
-module "secured-bucket" {
+module "secured-bucket1" {
     source                  = "../../"
 
     bucket_name             = var.bucket_name
     static_website_hosting  = false
     block_public_access     = true
     create_kms_key          = false
-    create_logging_bucket   = false
     logging_bucket_name     = "cloudful-logs"
 }
 ```
@@ -62,7 +60,6 @@ module "static_website" {
     bucket_name             = var.bucket_name
     static_website_hosting  = true
     block_public_access     = false
-    create_logging_bucket   = true
     logging_bucket_name     = "cloudful-logs"
 }
 ```
@@ -97,6 +94,7 @@ module "static_website" {
 | [aws_s3_bucket_server_side_encryption_configuration.sse_kms_encryption](https://registry.terraform.io/providers/hashicorp/aws/4.64.0/docs/resources/s3_bucket_server_side_encryption_configuration) | resource |
 | [aws_s3_bucket_versioning.versioning](https://registry.terraform.io/providers/hashicorp/aws/4.64.0/docs/resources/s3_bucket_versioning) | resource |
 | [aws_s3_bucket_website_configuration.s3_website_configuration](https://registry.terraform.io/providers/hashicorp/aws/4.64.0/docs/resources/s3_bucket_website_configuration) | resource |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/4.64.0/docs/data-sources/caller_identity) | data source |
 
 ## References
 - [AWS Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
